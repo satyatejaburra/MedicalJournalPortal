@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx.xsd 
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+           http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd"> -->
+  <!-- <context:component-scan base-package="com.crossword.medicaljournalportal">
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+  </context:component-scan>
+  <context:annotation-config />
+  <tx:annotation-driven transaction-manager="transactionManager" />
+ -->
+  <!-- SPRING - JPA -->
+ <!--  <jpa:repositories base-package="com.wang.michael.online_shop.repository" repository-impl-postfix="Impl"
+    entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager" />
+
+  <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+    <property name="jpaDialect">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+    </property>
+  </bean>
+  <context:property-placeholder location="classpath:/application.properties" />
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driver}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+  </bean>
+
+  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+    <property name="persistenceUnitName" value="spring-jpa" />
+    <property name="jpaVendorAdapter">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="generateDdl" value="${hibernate.generateDdl}" />
+        <property name="showSql" value="${hibernate.show_sql}" />
+        <property name="databasePlatform" value="${hibernate.dialect}" />
+        <property name="database" value="${hibernate.database}" />
+      </bean>
+    </property>
+    <property name="jpaProperties">
+      <props>
+        <prop key="hibernate.temp.use_jdbc_metadata_defaults">${hibernate.temp.use_jdbc_metadata_defaults}</prop>
+        <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+        <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+        <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+        <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+        <prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
+        <prop key="jadira.usertype.autoRegisterUserTypes">${jadira.usertype.autoRegisterUserTypes}</prop>
+      </props>
+    </property>
+    <property name="packagesToScan">
+      <list>
+        <value>com.wang.michael.online_shop.model</value>
+      </list>
+    </property>
+  </bean> -->
+
+  <bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+    <property name="privateKey" value="${recaptcha.private.key}" />
+    <property name="publicKey" value="${recaptcha.public.key}" />
+    <property name="includeNoscript" value="false" />
+  </bean>
+
+<!--   <bean name="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="validationMessageSource">
+      <ref bean="messageSource" />
+    </property>
+  </bean> -->
+
+</beans>
